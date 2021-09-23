@@ -127,9 +127,10 @@ class Socket extends Emitter {
     } else {
       message = messageEvent.data;
     }
+    
     if (message == "#1") {
       sendOrAdd('#2');
-    } else {
+    } else if(message != null && message.isNotEmpty){
 //      print('Message received: $message');
 
       var map = jsonDecode(message!);
@@ -189,6 +190,8 @@ class Socket extends Emitter {
         default:
           throw new RangeError('Unknown ParseResult');
       }
+    } else {
+      sendOrAdd('');
     }
   }
 
