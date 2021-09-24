@@ -130,7 +130,7 @@ class Socket extends Emitter {
     
     if (message == "#1") {
       sendOrAdd('#2');
-    } else if(message != null && message.isNotEmpty){
+    } else if(message != null && message.isNotEmpty && message != ""){
 //      print('Message received: $message');
 
       var map = jsonDecode(message!);
